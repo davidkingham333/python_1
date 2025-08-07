@@ -18,7 +18,6 @@ pygame.display.set_caption("SNAKE")
 screen.fill(background_colour)
 
 snake_count = 1
-level = 0
 
 snakeVar = pygame.font.SysFont("Arial",20)
 snake_text="■"
@@ -56,8 +55,6 @@ def snake_expend():
     global snake, snake_count
 
     snake.append(snake[-1])
-
-   # for lev in level:
 
 
 food_event()
@@ -101,8 +98,6 @@ while running:
     if (new_head[0] - x_pos  <= 10 and new_head[0] - x_pos >= -10) and (new_head[1] - y_pos <= 10 and new_head[1] - x_pos  >= -10):
         snake_expend()
         food_event()
-        level += 1
-        print("Next Level")
     else:
         snake.pop()
             
