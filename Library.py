@@ -1,6 +1,5 @@
 import requests
 import urllib.parse
-import os
 
 
 class Lib:
@@ -14,16 +13,14 @@ class Lib:
     def get_ISBN(self):
             
             try:
-                with open('python','api_key.txt') as f:
-                    api_key = f.read().strip()
-            except ValueError:
-                print("api_key not found")
-
+                with open('api_key.txt', 'r') as f:
+                    api_key = f.read()
+            except FileNotFoundError:
+                return "api_key.txt nebyl nalezen"
 
 
             encoded_name = urllib.parse.quote(self.name)
             encoded_author = urllib.parse.quote(self.author)
-            
             
             
             url = f"https://www.googleapis.com/books/v1/volumes?q={encoded_author}+{encoded_name}&key={api_key}"
@@ -52,7 +49,7 @@ class Lib:
 author = input("Zadejte jméno autora: ")
 name = input("Zadejte název knihy: ")
 
-# Vytvoření instance a vyhledání ISBN
+
 book = Lib(author=author, name=name)
 isbn = book.get_ISBN()
 print(f"ISBN pro knihu '{book.name}' od autora '{book.author}': {isbn}")
