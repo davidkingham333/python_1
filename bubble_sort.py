@@ -1,5 +1,5 @@
 #time complexity: O(n^2)
-#space complexity: O(1).......
+#space complexity: O(1)
 
 A = [-5, 3, 2, 1, -3, -3, 7, 2, 2]
 
