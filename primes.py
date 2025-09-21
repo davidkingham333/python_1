@@ -1,4 +1,5 @@
 import math
+#git changes
 
 def prime_nums(n) -> int:
     if n<=1:
